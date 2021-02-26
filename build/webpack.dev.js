@@ -25,7 +25,7 @@ const webpackDevConfig = {
       hash: true,
       cache: true, 
       template: './build/static/index.html',
-      // favicon: './build/static/favicon.ico'
+      favicon: './build/static/favicon.ico'
     }),
   ],
   devServer: {
