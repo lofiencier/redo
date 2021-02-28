@@ -16,31 +16,37 @@ exports.babel = () => ({
 exports.vue = () => ({
   test: /.vue$/,
   include: [resolve('src')],
-  use: {
-    loader: 'vue-loader',
-  },
+  loader: 'vue-loader',
   options: {
-    hotReload: isDev
-  }
+    hotReload: isDev,
+  },
 });
 
 exports.css = () => ({
   test: /.css$/,
   use: [
     'vue-style-loader',
-    'postcss-loader',
-    'css-loader'
-  ],
-  options: {}
+    {
+      loader: 'css-loader',
+      options: {
+        esModule: false,
+      }
+    },
+    'postcss-loader'
+  ]
 });
 
 exports.less = () => ({
   test: /.less$/,
   use: [
     'vue-style-loader',
-    'css-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        esModule: false
+      }
+    },
     'postcss-loader',
-    'less-loader'
+    'less-loader' 
   ],
-  options: {}
 });

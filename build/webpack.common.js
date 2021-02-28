@@ -1,6 +1,7 @@
 const loaders = require('./loaders');
 const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 
 module.exports = {
   resolve: {
@@ -12,14 +13,14 @@ module.exports = {
   },
   module: {
     rules: [
+      loaders.vue(),
       loaders.babel(),
-      // loaders.less(),
-      // loaders.css(),
-      // loaders.vue(),
+      loaders.less(),
+      loaders.css(),
     ]
   },
   externals: {},
   plugins: [
-    // new VueLoaderPlugin(),
+    new VueLoaderPlugin(),
   ]
 }
