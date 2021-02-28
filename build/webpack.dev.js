@@ -35,6 +35,7 @@ const webpackDevConfig = {
     historyApiFallback: true,
     disableHostCheck: true,
     open: false,
+    publicPath: '/'
   }
 }
 

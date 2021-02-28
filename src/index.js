@@ -1,6 +1,7 @@
 import Vue from 'vue';
-import App from './app.vue';
 import './styles/global.less';
+import router from './routes';
+import App from './app';
 
 Vue.mixin({
   computed: {
@@ -9,7 +10,6 @@ Vue.mixin({
   }
 });
 new Vue({
-  el: '#app',
-  router: null,
-  render: (h) => <App/>
-});
+  router,
+  render: h => <App />
+}).$mount('#app');
