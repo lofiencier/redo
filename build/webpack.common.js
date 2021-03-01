@@ -8,7 +8,7 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.js', '.less', '.css', '.vue'],
     alias: {
-      vue: 'vue/dist/vue.js'
+      
     }
   },
   module: {

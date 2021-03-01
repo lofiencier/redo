@@ -1,5 +1,6 @@
 const path = require('path');
 const resolve = path.resolve;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDev = process.env.NODE_ENV;
 
 exports.babel = () => ({
@@ -25,7 +26,7 @@ exports.vue = () => ({
 exports.css = () => ({
   test: /.css$/,
   use: [
-    'vue-style-loader',
+    isDev ? 'vue-style-loader': MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {
@@ -39,7 +40,7 @@ exports.css = () => ({
 exports.less = () => ({
   test: /.less$/,
   use: [
-    'vue-style-loader',
+    isDev ? 'vue-style-loader': MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {

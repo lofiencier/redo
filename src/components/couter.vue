@@ -1,16 +1,29 @@
 <template>
-  <a @click="onClick" class="clickable">{{ count }}</a>
+  <a @click="onClick" class="clickable">{{ countAlias }} - {{ counted(2) }}</a>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex';
+
 export default {
-  data: () => ({
-    count: 0
-  }),
   methods: {
     onClick() {
-      this.count++ ;
-    }
+      this.$store.commit('increment', 10);
+      // this.incrementAction().then(() => console.log('???!'));
+      // console.log('this.incrementAction', this.incrementAction);
+      // this.$store.dispatch('incrementAction').then((ss) => console.log('ss', ss));
+      this.incrementAction();
+    },
+    ...mapActions(['incrementAction'])
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      countAlias: 'count'
+    }),
+    ...mapGetters({
+      counted: 'getDdCount'
+    }),
   }
 }
 </script>
